@@ -17,3 +17,4 @@ jobs:
           heroku_email: "sluhtala@me.com"
           healthcheck: "https://sl-ci-cd-test.herokuapp.com/health"
           checkstring: "ok"
+          rollbackhealthcheckfailed: true
