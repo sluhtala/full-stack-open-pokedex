@@ -17,4 +17,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Say Hello
-              run: echo 'Hello world!' && date && ls
+              run: echo 'Hello world!'
+            - name: Now it is
+              run: date
+            - name: Directory content
+              run: ls -l
