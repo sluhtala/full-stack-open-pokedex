@@ -1,5 +1,5 @@
 name:
-    simple_deployment_pipeline:
+   deployment_pipeline
 
 on:
     push:
