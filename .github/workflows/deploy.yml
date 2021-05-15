@@ -15,3 +15,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "sl-ci-cd-test" #Must be unique in Heroku
           heroku_email: "sluhtala@me.com"
+          healthcheck: "https://sl-ci-cd-test.herokuapp.com/health"
+          checkstring: "ok"
