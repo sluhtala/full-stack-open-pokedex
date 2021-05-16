@@ -7,9 +7,9 @@ on:
       - master
 
 jobs:
+  env:
+    CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
   test_job:
-    env:
-      CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
