@@ -8,12 +8,18 @@ on:
 
 jobs:
   test_job:
+    env:
+      CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: test 
         run: echo 'test test test'
       - name: commit message
-        env:
-          CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
         run: echo "$CONTAINS"
+  test_job2:
+    runs-on: ubuntu-latest
+    if: ${{ $CONTAINS == true }}
+    steps:
+      - name: skip
+        run: echo 'should skip'
