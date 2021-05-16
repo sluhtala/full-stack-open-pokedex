@@ -1,0 +1,29 @@
+name: just_testing
+
+on:
+  push:
+    branches:
+      - sluhtala
+      - master
+
+jobs:
+  test_job:
+    env:
+      CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: test 
+        run: echo 'test test test'
+      - name: commit message
+        run: echo "$CONTAINS"
+  test_job2:
+    env:
+      CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: commit message
+        run: echo "$CONTAINS"
+      - name: skip
+        if: ${{ env.CONTAINS }}
+        run: echo 'should skip'
