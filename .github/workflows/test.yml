@@ -25,5 +25,5 @@ jobs:
       - name: commit message
         run: echo "$CONTAINS"
       - name: skip
-        if: ${{env.CONTAINS == true}}
+        if: ${{ env.CONTAINS }}
         run: echo 'should skip'
