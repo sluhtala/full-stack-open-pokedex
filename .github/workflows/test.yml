@@ -16,5 +16,4 @@ jobs:
       - name: commit message
         env:
           COM_MSG: ${{ join(toJson(github.event.commits.*.message)) }}
-        if: ${{ $COM_MSG == true}}
         run: echo "$COM_MSG"
