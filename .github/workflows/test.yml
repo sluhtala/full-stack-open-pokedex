@@ -15,5 +15,5 @@ jobs:
         run: echo 'test test test'
       - name: commit message
         env:
-          COM_MSG: ${{ join(toJson(github.event.commits.*.message)) }}
+          COM_MSG: ${{ join(github.event.commits.*.message) }}
         run: echo "$COM_MSG"
