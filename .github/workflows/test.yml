@@ -23,5 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ "$CONTAINS" == true }}
     steps:
+      - name: commit message
+        run: echo "$CONTAINS"
       - name: skip
         run: echo 'should skip'
