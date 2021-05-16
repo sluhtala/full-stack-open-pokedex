@@ -15,6 +15,5 @@ jobs:
         run: echo 'test test test'
       - name: commit message
         env:
-          COM_MSG: ${{ join(github.event.commits.*.message, ' ') }}
-          CONTAINS: ${{ contains($COM_MSG, '#skip')}}
+          CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
         run: echo "$CONTAINS"
