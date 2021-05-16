@@ -32,13 +32,13 @@ jobs:
                 start: npm run start-prod
                 wait-on: http://localhost:5000
             if: ${{ github.event_name == 'push' }}
-          - name: to heroku 
-          - uses: actions/checkout@v2
-          - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-            with:
-              heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-              heroku_app_name: "sl-ci-cd-test" #Must be unique in Heroku
-              heroku_email: "sluhtala@me.com"
-              healthcheck: "https://sl-ci-cd-test.herokuapp.com/health"
-              checkstring: "ok"
-              rollbackhealthcheckfailed: true
+              - name: to heroku 
+              - uses: actions/checkout@v2
+              - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+                with:
+                  heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+                  heroku_app_name: "sl-ci-cd-test" #Must be unique in Heroku
+                  heroku_email: "sluhtala@me.com"
+                  healthcheck: "https://sl-ci-cd-test.herokuapp.com/health"
+                  checkstring: "ok"
+                  rollbackhealthcheckfailed: true
