@@ -1,0 +1,15 @@
+name: just_testing
+
+on:
+  push:
+    branches
+      - sluhtala
+      - master
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: test 
+        run: echo 'test test test'
