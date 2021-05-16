@@ -21,7 +21,7 @@ jobs:
     env:
       CONTAINS: ${{ contains(join(github.event.commits.*.message), '#skip')}}
     runs-on: ubuntu-latest
-    if: ${{ env.CONTAINS == true }}
+    if: ${{ CONTAINS == true }}
     steps:
       - name: commit message
         run: echo "$CONTAINS"
